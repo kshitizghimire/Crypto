@@ -24,7 +24,7 @@ struct CoinsView: View {
         }
         .onAppear {
             async {
-               try? await viewModel.loadData()
+               try? await viewModel.fetchCoins()
             }
         }
     }
