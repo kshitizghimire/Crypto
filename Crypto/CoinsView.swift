@@ -20,9 +20,12 @@ struct CoinsView: View {
                     Text(coin.symbol)
                 }
             }
+            .navigationBarTitle("Coins")
         }
         .onAppear {
-            viewModel.loadData()
+            async {
+               try? await viewModel.loadData()
+            }
         }
     }
 }
