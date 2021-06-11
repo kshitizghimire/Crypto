@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CoinsView.swift
 //  Crypto
 //
 //  Created by Tiz on 11/6/21.
@@ -7,22 +7,17 @@
 
 import SwiftUI
 
-
-struct Coin: Codable {
-    var id: String
-    var symbol: String
-    var name: String
-}
-
-struct ContentView: View {
+struct CoinsView: View {
     
     @State var coins: [Coin] = []
     var body: some View {
-        List(coins, id: \.id) { coin in
-            VStack(alignment: .leading) {
-                Text(coin.name)
-                    .font(.headline)
-                Text(coin.symbol)
+        NavigationView {
+            List(coins, id: \.id) { coin in
+                VStack(alignment: .leading) {
+                    Text(coin.name)
+                        .font(.headline)
+                    Text(coin.symbol)
+                }
             }
         }
         .onAppear(perform: loadData)
@@ -43,7 +38,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CoinsView()
     }
 }
 
