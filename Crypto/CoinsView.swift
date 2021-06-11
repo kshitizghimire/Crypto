@@ -9,10 +9,11 @@ import SwiftUI
 
 struct CoinsView: View {
     
-    @State var coins: [Coin] = []
+    @ObservedObject var viewModel = CoinsViewModel()
+    
     var body: some View {
         NavigationView {
-            List(coins, id: \.id) { coin in
+            List(viewModel.coins, id: \.id) { coin in
                 VStack(alignment: .leading) {
                     Text(coin.name)
                         .font(.headline)
@@ -20,19 +21,9 @@ struct CoinsView: View {
                 }
             }
         }
-        .onAppear(perform: loadData)
-    }
-    
-    func loadData() {
-        let url = URL(string: "https://api.coingecko.com/api/v3/coins/list")!
-        let request = URLRequest(url: url)
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data,
-               let decodedResponse = try? JSONDecoder().decode([Coin].self, from: data) {
-                self.coins = decodedResponse
-            }
-            
-        }.resume()
+        .onAppear {
+            viewModel.loadData()
+        }
     }
 }
 
