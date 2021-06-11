@@ -14,17 +14,27 @@ struct CoinsView: View {
     var body: some View {
         NavigationView {
             List(viewModel.coins, id: \.id) { coin in
-                VStack(alignment: .leading) {
-                    Text(coin.name)
-                        .font(.headline)
-                    Text(coin.symbol)
+                HStack {
+                    AsyncImage(url: URL(string: coin.image)) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    } placeholder: {
+                        Image(systemName: "arrow.up.message.fill")
+                    }
+                    .frame(width: 20, height: 20)
+                    VStack(alignment: .leading) {
+                        Text(coin.name)
+                            .font(.headline)
+                        Text(coin.symbol)
+                    }
                 }
             }
             .navigationBarTitle("Coins")
         }
         .onAppear {
             async {
-               try? await viewModel.fetchCoins()
+                try? await viewModel.fetchCoins()
             }
         }
     }
