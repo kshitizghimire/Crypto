@@ -20,7 +20,6 @@ struct CoinsView: View {
                         AsyncImage(url: URL(string: coin.image)) { image in
                             image
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
                         } placeholder: {
                             Image(systemName: "arrow.up.message.fill")
                         }

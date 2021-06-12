@@ -11,7 +11,13 @@ import SwiftUI
 struct CryptoApp: App {
     var body: some Scene {
         WindowGroup {
-            CoinsView()
+            TabView {
+                CoinsView()
+                    .tabItem {
+                        Image(systemName: "bitcoinsign.circle")
+                        Text("Coins")
+                    }
+            }
         }
     }
 }
