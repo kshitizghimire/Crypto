@@ -10,10 +10,11 @@ import SwiftUI
 struct CoinsView: View {
     
     @ObservedObject var viewModel = CoinsViewModel()
+    @State var searchText = ""
     
     var body: some View {
         NavigationView {
-            List(viewModel.coins, id: \.id) { coin in
+            List(viewModel.searchResults(searchText: searchText), id: \.id) { coin in
                 HStack {
                     AsyncImage(url: URL(string: coin.image)) { image in
                         image
@@ -30,7 +31,8 @@ struct CoinsView: View {
                     }
                 }
             }
-            .navigationBarTitle("Coins")
+            .searchable(text: $searchText)
+            .navigationTitle("Coins")
         }
         .onAppear {
             async {
