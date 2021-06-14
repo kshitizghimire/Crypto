@@ -13,19 +13,26 @@ struct CoinsView: View {
     @State var searchText = ""
     
     var body: some View {
-        NavigationView {
-            List(viewModel.searchResults(searchText: searchText), id: \.id) { coin in
-                NavigationLink(destination: Text(coin.name)) {
+        switch viewModel.state {
+        case .idle:
+            Color.clear
+                .onAppear {
+                    async {
+                        await viewModel.fetchCoins()
+                    }
+                }
+        case .loading:
+            ProgressView()
+        case .loaded:
+            NavigationView {
+                List(viewModel.searchResults(searchText: searchText), id: \.id) { coin in
                     CoinRowView(coin: coin)
                 }
+                .searchable(text: $searchText)
+                .navigationTitle("Coins")
             }
-            .searchable(text: $searchText)
-            .navigationTitle("Coins")
-        }
-        .onAppear {
-            async {
-                try? await viewModel.fetchCoins()
-            }
+        case .failed:
+            Color.red
         }
     }
 }
