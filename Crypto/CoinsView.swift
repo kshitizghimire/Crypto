@@ -16,20 +16,7 @@ struct CoinsView: View {
         NavigationView {
             List(viewModel.searchResults(searchText: searchText), id: \.id) { coin in
                 NavigationLink(destination: Text(coin.name)) {
-                    HStack {
-                        AsyncImage(url: URL(string: coin.image)) { image in
-                            image
-                                .resizable()
-                        } placeholder: {
-                            Image(systemName: "arrow.up.message.fill")
-                        }
-                        .frame(width: 20, height: 20)
-                        VStack(alignment: .leading) {
-                            Text(coin.name)
-                                .font(.headline)
-                            Text(coin.symbol)
-                        }
-                    }
+                    CoinRowView(coin: coin)
                 }
             }
             .searchable(text: $searchText)
