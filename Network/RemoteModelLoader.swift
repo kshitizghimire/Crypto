@@ -1,0 +1,32 @@
+import Foundation
+
+public struct RemoteModelLoader: ModelLoading {
+    enum RemoteModelLoaderError: Error {
+        case decoding
+        case network
+    }
+
+    let dataLoader: DataLoading
+    let decoder: JSONDecoder
+
+    public init(dataLoader: DataLoading, decoder: JSONDecoder) {
+        self.dataLoader = dataLoader
+        self.decoder = decoder
+    }
+
+    public func load<T: Decodable>(for url: URL, completion: @escaping (Result<T, Error>) -> Void) {
+        dataLoader.load(for: url) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let result = try self.decoder.decode(T.self, from: data)
+                    completion(.success(result))
+                } catch {
+                    completion(.failure(RemoteModelLoaderError.decoding))
+                }
+            case .failure:
+                completion(.failure(RemoteModelLoaderError.network))
+            }
+        }
+    }
+}

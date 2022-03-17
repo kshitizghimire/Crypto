@@ -1,15 +1,19 @@
 import SwiftUI
 
-struct CoinsView: View {
-    @ObservedObject var viewModel = CoinsViewModel()
+public struct CoinsView: View {
+    @ObservedObject var viewModel: CoinsViewModel
     @State var searchText = ""
 
-    var body: some View {
+    public init(viewModel: CoinsViewModel) {
+        self.viewModel = viewModel
+    }
+
+    public var body: some View {
         switch viewModel.state {
         case .idle:
             Color.clear
                 .onAppear {
-                    async {
+                    Task {
                         await viewModel.fetchCoins()
                     }
                 }
@@ -29,8 +33,8 @@ struct CoinsView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CoinsView()
-    }
-}
+// struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CoinsView()
+//    }
+// }
