@@ -1,17 +1,9 @@
-//
-//  CoinsView.swift
-//  Crypto
-//
-//  Created by Tiz on 11/6/21.
-//
-
 import SwiftUI
 
 struct CoinsView: View {
-    
     @ObservedObject var viewModel = CoinsViewModel()
     @State var searchText = ""
-    
+
     var body: some View {
         switch viewModel.state {
         case .idle:
@@ -42,4 +34,3 @@ struct ContentView_Previews: PreviewProvider {
         CoinsView()
     }
 }
-

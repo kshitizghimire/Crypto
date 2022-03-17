@@ -1,16 +1,8 @@
-//
-//  CoinRowView.swift
-//  Crypto
-//
-//  Created by Tiz on 14/6/21.
-//
-
 import SwiftUI
 
 struct CoinRowView: View {
-    
     let coin: Coin
-    
+
     var body: some View {
         HStack {
             AsyncImage(url: URL(string: coin.image)) { phase in
@@ -30,7 +22,6 @@ struct CoinRowView: View {
                 Text(coin.symbol)
             }
         }
-        
     }
 }
 
