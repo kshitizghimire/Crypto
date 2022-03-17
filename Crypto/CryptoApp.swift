@@ -8,9 +8,8 @@ struct CryptoApp: App {
         WindowGroup {
             TabView {
                 let remoteDataLoader = RemoteDataLoader()
-                let mainThreadDataLoader = MainThreadDataLoader(dataLoader: remoteDataLoader)
                 let modelLoader = RemoteModelLoader(
-                    dataLoader: mainThreadDataLoader,
+                    dataLoader: remoteDataLoader,
                     decoder: JSONDecoder()
                 )
                 let viewModel = CoinsViewModel(modelLoader: modelLoader)

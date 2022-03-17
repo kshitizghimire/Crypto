@@ -1,3 +1,4 @@
+import Service
 import SwiftUI
 
 public struct CoinsView: View {
@@ -33,8 +34,14 @@ public struct CoinsView: View {
     }
 }
 
-// struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CoinsView()
-//    }
-// }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        let model = [
+            Coin(id: "0", symbol: "BTC", name: "Bitcoin", image: "http://google.com"),
+            Coin(id: "1", symbol: "ETH", name: "Ethereum", image: "http://google.com"),
+        ]
+        let mockModelLoader = MockModelLoader(model: model)
+        let viewModel = CoinsViewModel(modelLoader: mockModelLoader)
+        CoinsView(viewModel: viewModel)
+    }
+}
