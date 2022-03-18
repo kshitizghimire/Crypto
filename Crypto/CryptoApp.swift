@@ -12,7 +12,8 @@ struct CryptoApp: App {
                     dataLoader: remoteDataLoader,
                     decoder: JSONDecoder()
                 )
-                let viewModel = CoinsViewModel(modelLoader: modelLoader)
+                let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=1000&page=1&sparkline=false")!
+                let viewModel = CoinsViewModel(modelLoader: modelLoader, url: url)
                 CoinsView(viewModel: viewModel)
                     .tabItem {
                         Image(systemName: "bitcoinsign.circle")
