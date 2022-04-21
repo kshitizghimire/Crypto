@@ -26,7 +26,7 @@
 --hexliteralcase uppercase
 --ifdef indent
 --importgrouping alpha
---indent 4
+--indent tab
 --indentcase false
 --lifecycle 
 --linebreaks lf

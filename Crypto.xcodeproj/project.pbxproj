@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761E517828102DCD0066F15E /* CoinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761E517728102DCD0066F15E /* CoinDetailView.swift */; };
 		763133C126733CA30021B59C /* CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763133C026733CA30021B59C /* CryptoApp.swift */; };
 		763133C526733CA40021B59C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763133C426733CA40021B59C /* Assets.xcassets */; };
 		763133C826733CA40021B59C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 763133C726733CA40021B59C /* Preview Assets.xcassets */; };
@@ -98,6 +99,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		761E517728102DCD0066F15E /* CoinDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailView.swift; sourceTree = "<group>"; };
 		763133BD26733CA30021B59C /* Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		763133C026733CA30021B59C /* CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApp.swift; sourceTree = "<group>"; };
 		763133C226733CA30021B59C /* CoinsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsView.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				763133E826736C1E0021B59C /* CoinsViewModel.swift */,
 				763133EB26736C550021B59C /* Coin.swift */,
 				763133ED26778B730021B59C /* CoinRowView.swift */,
+				761E517728102DCD0066F15E /* CoinDetailView.swift */,
 			);
 			path = Coins;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				768BFBD627E3429D004D9811 /* CoinRowView.swift in Sources */,
 				768BFBD527E3429D004D9811 /* Coin.swift in Sources */,
 				768BFBD727E3429D004D9811 /* CoinsView.swift in Sources */,
+				761E517828102DCD0066F15E /* CoinDetailView.swift in Sources */,
 				768BFBD827E3429D004D9811 /* CoinsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
