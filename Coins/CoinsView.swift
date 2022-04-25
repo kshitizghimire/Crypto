@@ -10,13 +10,11 @@ public struct CoinsView: View {
 
 	public var body: some View {
 		NavigationView {
-			List {
-				ForEach(viewModel.displayCoins) { coin in
-					NavigationLink {
-						CoinDetailView(coin: coin)
-					} label: {
-						CoinRowView(coin: coin)
-					}
+			List(viewModel.displayCoins) { coin in
+				NavigationLink {
+					CoinDetailView(coin: coin)
+				} label: {
+					CoinRowView(coin: coin)
 				}
 			}
 			.searchable(text: $viewModel.searchText)

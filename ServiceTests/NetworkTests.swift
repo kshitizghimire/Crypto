@@ -1,4 +1,4 @@
-@testable import Network
+import Network
 import XCTest
 
 class NetworkTests: XCTestCase {

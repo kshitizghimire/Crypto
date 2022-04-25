@@ -1,7 +1,7 @@
 import Foundation
 
-struct Coin {
-	var id: String
+public struct Coin {
+	public var id: String
 	var symbol: String
 	var name: String
 	var image: String
@@ -9,3 +9,4 @@ struct Coin {
 
 extension Coin: Codable {}
 extension Coin: Identifiable {}
+extension Coin: Equatable {}

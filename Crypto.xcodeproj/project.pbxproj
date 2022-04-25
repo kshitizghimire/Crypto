@@ -21,7 +21,7 @@
 		768BFBB227E33F4A004D9811 /* DataLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768BFBAF27E33F4A004D9811 /* DataLoading.swift */; };
 		768BFBB327E33F4A004D9811 /* RemoteDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768BFBB027E33F4A004D9811 /* RemoteDataLoader.swift */; };
 		768BFBC227E34256004D9811 /* Coins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768BFBBA27E34256004D9811 /* Coins.framework */; };
-		768BFBC927E34256004D9811 /* CoinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768BFBC827E34256004D9811 /* CoinsTests.swift */; };
+		768BFBC927E34256004D9811 /* CoinsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768BFBC827E34256004D9811 /* CoinsViewModelTests.swift */; };
 		768BFBCD27E34256004D9811 /* Coins.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768BFBBA27E34256004D9811 /* Coins.framework */; };
 		768BFBCE27E34256004D9811 /* Coins.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 768BFBBA27E34256004D9811 /* Coins.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		768BFBD527E3429D004D9811 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763133EB26736C550021B59C /* Coin.swift */; };
@@ -119,7 +119,7 @@
 		768BFBB027E33F4A004D9811 /* RemoteDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteDataLoader.swift; sourceTree = "<group>"; };
 		768BFBBA27E34256004D9811 /* Coins.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coins.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		768BFBC127E34256004D9811 /* CoinsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoinsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		768BFBC827E34256004D9811 /* CoinsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsTests.swift; sourceTree = "<group>"; };
+		768BFBC827E34256004D9811 /* CoinsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsViewModelTests.swift; sourceTree = "<group>"; };
 		768BFBDB27E356FF004D9811 /* MockModelLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockModelLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -260,7 +260,7 @@
 		768BFBC727E34256004D9811 /* CoinsTests */ = {
 			isa = PBXGroup;
 			children = (
-				768BFBC827E34256004D9811 /* CoinsTests.swift */,
+				768BFBC827E34256004D9811 /* CoinsViewModelTests.swift */,
 			);
 			path = CoinsTests;
 			sourceTree = "<group>";
@@ -576,7 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				768BFBC927E34256004D9811 /* CoinsTests.swift in Sources */,
+				768BFBC927E34256004D9811 /* CoinsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
