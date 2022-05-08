@@ -1,5 +1,5 @@
 import Coins
-import Service
+import Loader
 import SwiftUI
 
 @main

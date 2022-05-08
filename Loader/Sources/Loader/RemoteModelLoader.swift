@@ -1,10 +1,10 @@
 import Foundation
 
-public struct RemoteModelLoader: ModelLoading {
-	let dataLoader: DataLoading
+public struct RemoteModelLoader: ModelLoadable {
+	let dataLoader: DataLoadable
 	let decoder: JSONDecoder
 
-	public init(dataLoader: DataLoading, decoder: JSONDecoder) {
+	public init(dataLoader: DataLoadable, decoder: JSONDecoder) {
 		self.dataLoader = dataLoader
 		self.decoder = decoder
 	}

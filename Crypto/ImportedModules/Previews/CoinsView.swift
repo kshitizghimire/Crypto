@@ -1,6 +1,6 @@
 import Coins
 import Foundation
-import Service
+import Loader
 import SwiftUI
 
 struct CoinsView_Previews: PreviewProvider {

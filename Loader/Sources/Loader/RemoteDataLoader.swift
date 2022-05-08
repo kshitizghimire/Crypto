@@ -1,6 +1,6 @@
 import Foundation
 
-public struct RemoteDataLoader: DataLoading {
+public struct RemoteDataLoader: DataLoadable {
 	private let session: URLSession
 
 	public init(

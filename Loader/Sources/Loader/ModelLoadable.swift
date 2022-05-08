@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol ModelLoading {
+public protocol ModelLoadable {
 	func load<T: Decodable>(for url: URL) async throws -> T
 }

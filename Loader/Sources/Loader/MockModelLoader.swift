@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MockModelLoader<Model: Decodable>: ModelLoading {
+public struct MockModelLoader<Model: Decodable>: ModelLoadable {
 	let model: Model
 
 	public init(model: Model) {
