@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CoinRowView: View {
+struct CoinCellView: View {
 	let coin: Coin
 
 	var body: some View {
@@ -24,6 +24,6 @@ struct CoinRowView: View {
 
 struct CoinRowView_Previews: PreviewProvider {
 	static var previews: some View {
-		CoinRowView(coin: Coin(id: "1", symbol: "symbol", name: "name", image: "http://"))
+		CoinCellView(coin: Coin(id: "1", symbol: "symbol", name: "name", image: "http://"))
 	}
 }

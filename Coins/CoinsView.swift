@@ -1,5 +1,8 @@
-import Service
 import SwiftUI
+
+public protocol CoinLoadable {
+	func load() async throws -> [Coin]
+}
 
 public struct CoinsView: View {
 	@ObservedObject var viewModel: CoinsViewModel
@@ -9,34 +12,20 @@ public struct CoinsView: View {
 	}
 
 	public var body: some View {
-		NavigationView {
-			List(viewModel.displayCoins) { coin in
-				NavigationLink {
-					CoinDetailView(coin: coin)
-				} label: {
-					CoinRowView(coin: coin)
-				}
+		List(viewModel.displayCoins) { coin in
+			NavigationLink {
+				CoinDetailView(coin: coin)
+			} label: {
+				CoinCellView(coin: coin)
 			}
-			.searchable(text: $viewModel.searchText)
-			.navigationTitle("Coins")
-			.refreshable {
-				await viewModel.fetchCoins()
-			}
+		}
+		.searchable(text: $viewModel.searchText)
+		.navigationTitle("Coins")
+		.refreshable {
+			await viewModel.fetchCoins()
 		}
 		.task {
 			await viewModel.fetchCoins()
 		}
-	}
-}
-
-struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		let model = [
-			Coin(id: "0", symbol: "BTC", name: "Bitcoin", image: "http://google.com"),
-			Coin(id: "1", symbol: "ETH", name: "Ethereum", image: "http://google.com"),
-		]
-		let mockModelLoader = MockModelLoader(model: model)
-		let viewModel = CoinsViewModel(modelLoader: mockModelLoader, url: URL(string: "http://")!)
-		CoinsView(viewModel: viewModel)
 	}
 }

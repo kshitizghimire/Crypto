@@ -1,23 +1,19 @@
 import Foundation
-import Service
 
 @MainActor public final class CoinsViewModel: ObservableObject {
 	@Published var searchText = ""
 	@Published private var coins: [Coin] = []
-	private let modelLoader: ModelLoading
-	private let url: URL
+	private let coinLoader: CoinLoadable
 
 	public init(
-		modelLoader: ModelLoading,
-		url: URL
+		coinLoader: CoinLoadable
 	) {
-		self.modelLoader = modelLoader
-		self.url = url
+		self.coinLoader = coinLoader
 	}
 
 	func fetchCoins() async {
 		do {
-			coins = try await modelLoader.load(for: url)
+			coins = try await coinLoader.load()
 
 		} catch {}
 	}
